@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Review extends Model
 {
 
-  // protected $fillable = ['reviewer_name', 'title', 'content', 'date'];
-
+  protected $fillable = ['reviewer_name', 'title', 'content', 'date', 'product_id'];
+  
   
   public function product() {
     return $this->belongsTo('App\Product');

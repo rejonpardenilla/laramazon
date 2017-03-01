@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Seller extends Model
 {
 
-  // protected $fillable = ['name', 'last_name'];
+  protected $fillable = ['name', 'last_name'];
 
   
   public function address() {

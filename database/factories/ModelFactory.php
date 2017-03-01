@@ -42,7 +42,7 @@ $factory->define(App\Tag::class, function(Faker\Generator $faker) {
 });
 
 $factory->define(App\Review::class, function(Faker\Generator $faker) {
-    $sellers = App\Product::pluck('id')->all();
+    $products = App\Product::pluck('id')->all();
 
     return [
         'reviewer_name' => $faker->name,
@@ -59,7 +59,6 @@ $factory->define(App\Seller::class, function(Faker\Generator $faker) {
     return [
         'name' => $faker->firstName,
         'last_name' => $faker->lastName,
-        'address_id' => $faker->randomElement($addresses),
     ];
 });
 

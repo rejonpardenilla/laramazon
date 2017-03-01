@@ -11,18 +11,18 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create();
+        $faker = Faker\Factory::create();
         //Seed products table with 6 entries
         factory('App\Product', 6)->create();
         //Get array of ids
-        $productsIds      = DB::table('products')->pluck('id')->all();
+        $productsIds = DB::table('products')->pluck('id')->all();
         $sellersIds =  DB::table('sellers')->pluck('id')->all();
         foreach ((range(1, 10)) as $index) {
             foreach ($productsIds as $productId) {
                 DB::table('reviews')->insert([
                   'product_id' => $productId,
-                  'reviewer_name' => $faker->name($gender = null),
-                  'title' => $faker->sentence($nbWords = 6, $variableNbWords = true),
+                  'reviewer_name' => $faker->name(),
+                  'title' => $faker->sentence(),
                   'content' => $faker->text(),
                 ]);
             }

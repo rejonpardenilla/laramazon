@@ -18,7 +18,7 @@ class AlterAddressesTableAddASellerForeignKey extends Migration
 
             $table->foreign('seller_id')
                 ->references('id')
-                ->on('addresses');
+                ->on('sellers');
         });
     }
 
