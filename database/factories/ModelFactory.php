@@ -54,7 +54,6 @@ $factory->define(App\Review::class, function(Faker\Generator $faker) {
 });
 
 $factory->define(App\Seller::class, function(Faker\Generator $faker) {
-    $addresses = App\Address::pluck('id')->all();
 
     return [
         'name' => $faker->firstName,
@@ -63,12 +62,15 @@ $factory->define(App\Seller::class, function(Faker\Generator $faker) {
 });
 
 $factory->define(App\Address::class, function(Faker\Generator $faker) {
+    $sellers = App\Seller::pluck('id')->all();
+
     return [
         'address' => $faker->streetAddress,
         'city' => $faker->city,
         'state' => $faker->state,
         'country' => $faker->country,
         'postal_code' => $faker->randomNumber(5),
+        'seller_id' => $faker->randomElement($sellers),
     ];
 });
 
