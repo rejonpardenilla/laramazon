@@ -13,7 +13,7 @@ class CreateProductsAndTagsForeignKeys extends Migration
      */
     public function up()
     {
-        Schema::create('products_tags', function (Blueprint $table) {
+        Schema::create('product_tag', function (Blueprint $table) {
             $table->increments('id');
 
             $table->integer('product_id')->unsigned();
@@ -37,6 +37,6 @@ class CreateProductsAndTagsForeignKeys extends Migration
      */
     public function down()
     {
-        Schema::drop('products_tags');
+        Schema::drop('product_tag');
     }
 }
